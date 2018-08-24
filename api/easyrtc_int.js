@@ -36,7 +36,7 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         //RequireJS (AMD) build system
-        define(['easyrtc_lang', 'webrtc-adapter', 'socket.io'], factory);
+        define(['./easyrtc_lang', 'webrtc-adapter', 'socket.io'], factory);
     } else if (typeof module === 'object' && module.exports) {
         //CommonJS build system
         module.exports = factory(require('./easyrtc_lang'), require('webrtc-adapter'), require('socket.io'));

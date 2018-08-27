@@ -266,7 +266,7 @@
             if (fmtpLineIndex === null) {
                 return sdp;
             }
-            sdpLines[fmtpLineIndex] = sdpLines[fmtpLineIndex].concat('; stereo=1');
+            sdpLines[fmtpLineIndex] = sdpLines[fmtpLineIndex].concat('; stereo=1; sprop-stereo=1');
             sdp = sdpLines.join('\r\n');
             return sdp;
         }
@@ -279,6 +279,9 @@
                 sdp = maybePreferVideoReceiveCodec(insdp);
                 sdp = maybeSetAudioReceiveBitRate(sdp);
                 sdp = maybeSetVideoReceiveBitRate(sdp);
+                if (stereo) {
+                    sdp = addStereo(sdp);
+                }
                 //if( sdp != insdp ) {
                 //    console.log("changed the sdp from \n" + insdp + "\nto\n" + sdp);
                 //}

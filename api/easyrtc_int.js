@@ -778,11 +778,14 @@ var Easyrtc = function() {
                 }
             }
             else { // chrome and opera
+                /*
                 constraints.audio = {mandatory: {}, optional: []};
                 if (self._desiredAudioProperties.audioSrcId) {
                     constraints.audio.optional = constraints.audio.optional || [];
                     constraints.audio.optional.push({deviceId: self._desiredAudioProperties.audioSrcId});
                 }
+                */
+                constraints.audio = {channelCount: 2, echoCancellation: false, deviceId: self._desiredAudioProperties.audioSrcId};
             }
         }
         return constraints;
